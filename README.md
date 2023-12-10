@@ -59,7 +59,70 @@ export default defineConfig({
     react()],
 })
 ```
-### STEP 5: delete all files from (resources/js) except (resources/js/bootstrap.js):
+### STEP 5: install all dependencies :
+```js
+npm install
+```
+
+### STEP 6: delete all files from (resources/js) except (resources/js/bootstrap.js):
 [![Alt text](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9RavNlhCe92jQvQUkCDDa9_jOola9dh8zdIxFoEHm6WTEgwKc0NkeT5qC4bsfVfwwnKqTROvEUQQYEVZUoVfG93LfKi5QoX-ljys0Mm5i4RE0ssPipb0TsAp8irwABfu3GZAeArRICq-_B2o7UU6_NUqZ-HU-KAeoP8Kv3_sd9Tus_405F2f3lOq5bAkT/s16000/reactjs%20inertia%20laravel%20jetstream%20github%201.png)]
+
+### STEP 7: create file (resources/js/app.jsx) and add following code:
+```jsx
+import "./bootstrap";
+
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { createInertiaApp } from "@inertiajs/react";
+import { createRoot } from "react-dom/client";
+
+
+createInertiaApp({
+    resolve: (name) =>
+        resolvePageComponent(
+            `./Pages/${name}.jsx`,
+            import.meta.glob("./Pages/**/*.jsx")
+        ),
+
+    setup({ el, App, props, plugin }) {
+        createRoot(el)
+            .render(<App {...props} />)
+            .use(plugin);
+    },
+
+    progress: {
+        color: "#4B5563",
+    },
+});
+
+```
+
+### STEP 8: create file (resources/js/Pages/Welcome.jsx) and add following code:
+```jsx
+import "./bootstrap";
+
+import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
+import { createInertiaApp } from "@inertiajs/react";
+import { createRoot } from "react-dom/client";
+
+
+createInertiaApp({
+    resolve: (name) =>
+        resolvePageComponent(
+            `./Pages/${name}.jsx`,
+            import.meta.glob("./Pages/**/*.jsx")
+        ),
+
+    setup({ el, App, props, plugin }) {
+        createRoot(el)
+            .render(<App {...props} />)
+            .use(plugin);
+    },
+
+    progress: {
+        color: "#4B5563",
+    },
+});
+
+```
 
 
