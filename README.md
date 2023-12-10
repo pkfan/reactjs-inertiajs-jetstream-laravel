@@ -147,6 +147,14 @@ OR
 npm run build
 ```
 
+you can check all jetstream link from (.vue) js files and then use those links in reactjs
+
+e.g. 
+  1) route.get('login',data)
+  2) <Link href='login' />
+
+  use these links in react to handle all jetstream (fortify) auth
+
 
 
 
