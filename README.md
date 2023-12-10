@@ -60,7 +60,6 @@ export default defineConfig({
 })
 ```
 ### STEP 5: delete all files from (resources/js) except (resources/js/bootstrap.js):
-```js
 [![Alt text](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9RavNlhCe92jQvQUkCDDa9_jOola9dh8zdIxFoEHm6WTEgwKc0NkeT5qC4bsfVfwwnKqTROvEUQQYEVZUoVfG93LfKi5QoX-ljys0Mm5i4RE0ssPipb0TsAp8irwABfu3GZAeArRICq-_B2o7UU6_NUqZ-HU-KAeoP8Kv3_sd9Tus_405F2f3lOq5bAkT/s16000/reactjs%20inertia%20laravel%20jetstream%20github%201.png)]
 
 
