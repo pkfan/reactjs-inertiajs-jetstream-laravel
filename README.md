@@ -85,8 +85,7 @@ createInertiaApp({
 
     setup({ el, App, props, plugin }) {
         createRoot(el)
-            .render(<App {...props} />)
-            .use(plugin);
+            .render(<App {...props} />);
     },
 
     progress: {
@@ -98,31 +97,58 @@ createInertiaApp({
 
 ### STEP 8: create file (resources/js/Pages/Welcome.jsx) and add following code:
 ```jsx
-import "./bootstrap";
+import { Head } from '@inertiajs/react'
 
-import { resolvePageComponent } from "laravel-vite-plugin/inertia-helpers";
-import { createInertiaApp } from "@inertiajs/react";
-import { createRoot } from "react-dom/client";
+export default function Welcome() {
+  return (
+    <>
+      <Head title="Welcome" />
+      <h1>Welcome</h1>
+      <p>Hello welcome to your first  <span style={{color:'green'}}>react-Inertia</span> and <span style={{color:'red'}}>jetstream laravel</span> app!</p>
 
-
-createInertiaApp({
-    resolve: (name) =>
-        resolvePageComponent(
-            `./Pages/${name}.jsx`,
-            import.meta.glob("./Pages/**/*.jsx")
-        ),
-
-    setup({ el, App, props, plugin }) {
-        createRoot(el)
-            .render(<App {...props} />)
-            .use(plugin);
-    },
-
-    progress: {
-        color: "#4B5563",
-    },
-});
+      <a href='https://www.linkedin.com/in/pkfan/'>created by pkfan [linkedin] </a>
+    </>
+  )
+}
 
 ```
+
+### STEP 9: replace file (resources/views/app.blade.php) with following code:
+```html
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title inertia>{{ config('app.name', 'Laravel') }}</title>
+
+        <!-- Fonts -->
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+
+        <!-- Scripts -->
+        @routes
+        @viteReactRefresh
+        @vite(['resources/js/app.jsx', "resources/js/Pages/{$page['component']}.jsx"])
+        @inertiaHead
+    </head>
+    <body class="font-sans antialiased">
+        @inertia
+    </body>
+</html>
+
+```
+
+### STEP 2: finally run following command to start work on your project
+```bash
+npm run dev
+OR
+npm run build
+```
+
+
+
+
 
 
